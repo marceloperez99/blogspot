@@ -21,7 +21,7 @@ import os
 import urllib
 import urllib2
 import json
-
+from models import BlogModel
 
 #set up environment for Jinja
 #this sets jinja's relative directory to match the directory name(dirname) of
@@ -46,7 +46,10 @@ class ProfileHandler(webapp2.RequestHandler):
 class BlogzHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/blogz.html")
-            self.response.write(template.render())
+            allblogs = BlogModel.query().fetch()
+            render_data = {}
+            render_data["allblogs"] = allblogs
+            self.response.write(template.render(render_data))
 
 #         blogquery = BlogModel.query(BlogModel.title == "The Legal Duchess")
 #
