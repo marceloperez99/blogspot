@@ -23,6 +23,7 @@ import urllib2
 import json
 from models import BlogModel
 
+
 #set up environment for Jinja
 #this sets jinja's relative directory to match the directory name(dirname) of
 #the current __file__, in this case, main.py
@@ -54,6 +55,10 @@ class BlogzHandler(webapp2.RequestHandler):
 class BlogaddHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/addblog.html")
+            addblogs = BlogModel.query().fetch()
+            render_data = {}
+            render_data["addblogs"] = addblogs
+            self.response.write(template.render(render_data))
 
 
 #         blogquery = BlogModel.query(BlogModel.title == "The Legal Duchess")
@@ -99,7 +104,7 @@ class BlogaddHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/blogz', BlogzHandler),
-    # ('/prof', ProfileHandler),
-    # ('/about', AboutHandler),
-    # ('/source', SourceHandler),
+    ('/add', BlogaddHandler),
+    ('/prof', ProfileHandler),
+    ('/contact', ContactHandler),
 ], debug=True)
