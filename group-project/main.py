@@ -51,10 +51,11 @@ class BlogzHandler(webapp2.RequestHandler):
             render_data["allblogs"] = allblogs
             self.response.write(template.render(render_data))
 
-class BlogaddHandler(webapp2.Requesthandler):
+class BlogaddHandler(webapp2.RequestHandler):
         def get(self):
-            template = jinja_environment.get_template("templates/")
-            
+            template = jinja_environment.get_template("templates/addblog.html")
+
+
 
 #         blogquery = BlogModel.query(BlogModel.title == "The Legal Duchess")
 #
