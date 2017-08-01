@@ -22,6 +22,7 @@ import urllib
 import urllib2
 import json
 
+
 #set up environment for Jinja
 #this sets jinja's relative directory to match the directory name(dirname) of
 #the current __file__, in this case, main.py
@@ -29,16 +30,36 @@ jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template("templates/hero_page.html")
 
+
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
-            
+
 
 
 class AboutHandler(webapp2.RequestHandler):
+
+
+# class ProfileHandler(webapp2.RequestHandler):
+#         def get(self):
+#
+# class ProfileModel(ndb.Model):
+
+class UserModel(ndb.Model):
+    # desc = ndb.TextProperty()
+    # profile_pic = ndb.BlobProperty()
+    username = ndb.KeyProperty(repeated = True)
+
+# class SourcePageModel(ndb.Model):
+#     url = n
+
+class BlogModel(ndb.Model):
+        title = ndb.StringProperty()
+        url = ndb.LinkProperty()
 
 
 
@@ -47,7 +68,8 @@ class SourceHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/prof', ProfileHandler,
+    # ('/prof', ProfileHandler,
     ('/about'), AboutHandler,
     ('source'), SourceHandler,
+
 ], debug=True)
