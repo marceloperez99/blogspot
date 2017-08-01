@@ -15,3 +15,9 @@ class BlogModel(ndb.Model):
         title = ndb.StringProperty()
         url = ndb.StringProperty()
         descr = ndb.TextProperty()
+
+class BlogaddModel(ndb.Model)
+        title =
+        url =
+        decri =
+        username = 
