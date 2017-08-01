@@ -19,5 +19,5 @@ class BlogModel(ndb.Model):
 class BlogaddModel(ndb.Model):
         title = ndb.StringProperty()
         url = ndb.StringProperty()
-        decri = ndb.TextProperty()
-        username = ndb.StringProperty()
+        decri = ndb.StringProperty()
+        username = ndb.KeyProperty(repeated = True)

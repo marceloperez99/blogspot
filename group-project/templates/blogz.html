@@ -1,16 +1,18 @@
 <html>
 <header>
   <title>Blogs</title>
-
 </header>
 <body>
-
 <h1>Blogs</h1>
 
 {% for blogs in allblogs: %}
+
 <div class="blog_title"><a href="{{blogs.url}}">{{blogs.title}}</a></div>
 <div class="blog_desc">{{blogs.descr}}</div>
+
 {% endfor %}
+<div id="add_btn">
+<button type="button"><a href="templates/addblog.html">Add Blog</a></button></div>
 
 </body>
 

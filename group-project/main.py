@@ -56,7 +56,6 @@ class BlogaddHandler(webapp2.RequestHandler):
             template = jinja_environment.get_template("templates/addblog.html")
 
 
-
 #         blogquery = BlogModel.query(BlogModel.title == "The Legal Duchess")
 #
 #
