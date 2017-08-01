@@ -106,5 +106,5 @@ app = webapp2.WSGIApplication([
     ('/blogz', BlogzHandler),
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
-    ('/contact', ContactHandler),
+    # ('/contact', ContactHandler),
 ], debug=True)
