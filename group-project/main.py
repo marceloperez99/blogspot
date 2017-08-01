@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import webapp2
 from google.appengine.ext import ndb
 import webapp2
 import jinja2
@@ -24,9 +23,26 @@ import urllib2
 import json
 
 
+#set up environment for Jinja
+#this sets jinja's relative directory to match the directory name(dirname) of
+#the current __file__, in this case, main.py
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+        template = jinja_environment.get_template("templates/hero_page.html")
+
+
+class ProfileHandler(webapp2.RequestHandler):
+        def get(self):
+
+
+
+class AboutHandler(webapp2.RequestHandler):
+
 
 # class ProfileHandler(webapp2.RequestHandler):
 #         def get(self):
@@ -47,10 +63,13 @@ class BlogModel(ndb.Model):
 
 
 
-
+class SourceHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    # ('/prof', ProfileHandler
+    # ('/prof', ProfileHandler,
+    ('/about'), AboutHandler,
+    ('source'), SourceHandler,
+
 ], debug=True)
