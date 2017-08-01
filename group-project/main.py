@@ -22,16 +22,35 @@ import os
 import urllib
 import urllib2
 import json
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
 
-class ProfileHandler(webapp2.RequestHandler):
-        def get(self):
+# class ProfileHandler(webapp2.RequestHandler):
+#         def get(self):
+#
+# class ProfileModel(ndb.Model):
+
+class UserModel(ndb.Model):
+    # desc = ndb.TextProperty()
+    # profile_pic = ndb.BlobProperty()
+    username = ndb.KeyProperty(repeated = True)
+
+# class SourcePageModel(ndb.Model):
+#     url = n
+
+class BlogModel(ndb.Model):
+        title = ndb.StringProperty()
+        url = ndb.LinkProperty()
+
+
+
 
 
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/prof', ProfileHandler
+    # ('/prof', ProfileHandler
 ], debug=True)
