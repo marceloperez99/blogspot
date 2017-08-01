@@ -35,41 +35,45 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template("templates/hero_page.html")
 
-
-class ProfileHandler(webapp2.RequestHandler):
-        def get(self):
-
+        self.response.write(template.render_data())
+        #
 
 
-class AboutHandler(webapp2.RequestHandler):
+#class ProfileHandler(webapp2.RequestHandler):
+        # def get(self):
+        # .put
+        # .remove
+
+
+
+#class AboutHandler(webapp2.RequestHandler):
 
 
 # class ProfileHandler(webapp2.RequestHandler):
 #         def get(self):
 #
 # class ProfileModel(ndb.Model):
-
-class UserModel(ndb.Model):
-    # desc = ndb.TextProperty()
-    # profile_pic = ndb.BlobProperty()
-    username = ndb.KeyProperty(repeated = True)
-
-# class SourcePageModel(ndb.Model):
-#     url = n
-
-class BlogModel(ndb.Model):
-        title = ndb.StringProperty()
-        url = ndb.LinkProperty()
-
-
-
-class SourceHandler(webapp2.RequestHandler):
+#
+# class UserModel(ndb.Model):
+#     # desc = ndb.TextProperty()
+#     # profile_pic = ndb.BlobProperty()
+#     username = ndb.KeyProperty(repeated = True)
+#
+# # class SourcePageModel(ndb.Model):
+# #     url = n
+#
+# class BlogModel(ndb.Model):
+#         title = ndb.StringProperty()
+#         url = ndb.LinkProperty()
+#
+#
+#
+# class SourceHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    # ('/prof', ProfileHandler,
-    ('/about'), AboutHandler,
-    ('source'), SourceHandler,
-
+    # ('/prof', ProfileHandler),
+    # ('/about', AboutHandler),
+    # ('/source', SourceHandler),
 ], debug=True)
