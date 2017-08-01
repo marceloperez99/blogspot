@@ -1,30 +1,42 @@
-html {
-  height: 100%;
+body {
+    font-family: "Lato", sans-serif;
 }
 
-
-/* The hero image */
-
-.hero_image {
-  /* The image used */
-  background-image: url(http://bsnscb.com/data/out/217/38760979-writing-wallpapers.jpg);
-  /* Set a specific height */
-  height: 50%;
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
 
-/* Place text in the middle of the image */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
 
-.hero_text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
