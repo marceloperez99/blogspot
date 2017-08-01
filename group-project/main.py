@@ -15,11 +15,23 @@
 # limitations under the License.
 #
 import webapp2
-
+from google.appengine.ext import ndb
+import webapp2
+import jinja2
+import os
+import urllib
+import urllib2
+import json
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
 
+class ProfileHandler(webapp2.RequestHandler):
+        def get(self):
+
+
+
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', MainHandler),
+    ('/prof', ProfileHandler
 ], debug=True)

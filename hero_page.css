@@ -1,0 +1,30 @@
+html {
+  height: 100%;
+}
+
+
+/* The hero image */
+
+.hero_image {
+  /* The image used */
+  background-image: url(http://bsnscb.com/data/out/217/38760979-writing-wallpapers.jpg);
+  /* Set a specific height */
+  height: 50%;
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+/* Place text in the middle of the image */
+
+.hero_text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
