@@ -104,7 +104,7 @@ class BlogaddHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/blogz', BlogzHandler),
-    ('/add', BlogaddHandler)
+    ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
 ], debug=True)
