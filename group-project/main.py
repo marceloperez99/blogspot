@@ -40,12 +40,27 @@ class MainHandler(webapp2.RequestHandler):
 
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
-            .put
-            .remove
+            pass
 
-class BlogzHandler(webapp2.RequestHandler)
+
+class BlogzHandler(webapp2.RequestHandler):
         def get(self):
-        template = jinja_environment.get_template("templates2/main_haandler.html")
+            template = jinja_environment.get_template("templates/blogz.html")
+            self.response.write(template.render())
+
+#         blogquery = BlogModel.query(BlogModel.title == "The Legal Duchess")
+#
+#
+#
+#         blogresults = blogquery.fetch()
+#         print blogresults
+#
+# blogkey = blogresults[0].key
+#
+#
+# my_user = UserModel(username = "lollipop", desc = "I am lollipop", favblogs =[blogkey])
+#
+# my_blog = BlogModel(title = "The Legal Duchess", url = "http://www.thelegalduchess.com/")
 
 
 #class AboutHandler(webapp2.RequestHandler):
@@ -75,6 +90,7 @@ class BlogzHandler(webapp2.RequestHandler)
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    ('/blogz', BlogzHandler),
     # ('/prof', ProfileHandler),
     # ('/about', AboutHandler),
     # ('/source', SourceHandler),
