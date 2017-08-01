@@ -35,13 +35,13 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template("templates/hero_page.html")
         self.response.write(template.render())
-        
 
 
-#class ProfileHandler(webapp2.RequestHandler):
-        # def get(self):
-        # .put
-        # .remove
+
+class ProfileHandler(webapp2.RequestHandler):
+        def get(self):
+            .put
+            .remove
 
 
 
