@@ -6,10 +6,14 @@
 <h1>Blogs</h1>
 
 {% for blogs in allblogs: %}
-Blogs
+
+<div class="blog_title"><a href="{{blogs.url}}">{{blogs.title}}</a></div>
+<div class="blog_desc"></div>
+
 {% endfor %}
-{{allblogs}}
-<!-- <div class="blog_img"></div> -->
+
+
+
 </body>
 
 </html>
