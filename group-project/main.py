@@ -43,6 +43,9 @@ class ProfileHandler(webapp2.RequestHandler):
             .put
             .remove
 
+class BlogzHandler(webapp2.RequestHandler)
+        def get(self):
+        template = jinja_environment.get_template("templates2/main_haandler.html")
 
 
 #class AboutHandler(webapp2.RequestHandler):
