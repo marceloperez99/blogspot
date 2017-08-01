@@ -41,8 +41,9 @@ class MainHandler(webapp2.RequestHandler):
 
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
-            pass
-
+            template = jinja_environment.get_template("templates/profile.html")
+            render_data = {}
+            self.response.write(template.render(render_data))
 
 class BlogzHandler(webapp2.RequestHandler):
         def get(self):
@@ -58,6 +59,12 @@ class BlogaddHandler(webapp2.RequestHandler):
             addblogs = BlogModel.query().fetch()
             render_data = {}
             render_data["addblogs"] = addblogs
+            self.response.write(template.render(render_data))
+
+class ContactHandler(webapp2.RequestHandler):
+        def get(self):
+            template = jinja_environment.get_template("templates/contact_form.html")
+            render_data = {}
             self.response.write(template.render(render_data))
 
 
@@ -79,7 +86,7 @@ class BlogaddHandler(webapp2.RequestHandler):
 #class AboutHandler(webapp2.RequestHandler):
 
 
-# class ProfileHandler(webapp2.RequestHandler):
+#class ProfileHandler(webapp2.RequestHandler):
 #         def get(self):
 #
 # class ProfileModel(ndb.Model):
@@ -106,5 +113,5 @@ app = webapp2.WSGIApplication([
     ('/blogz', BlogzHandler),
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
-    # ('/contact', ContactHandler),
+    ('/contact', ContactHandler),
 ], debug=True)
