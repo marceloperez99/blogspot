@@ -41,7 +41,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
-            template = jinja_environment.get_template("templates/UserProfile.html")
+            template = jinja_environment.get_template("templates/profile.html")
             render_data = {}
             self.response.write(template.render(render_data))
 
