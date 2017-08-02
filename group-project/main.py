@@ -72,18 +72,18 @@ class BlogshowHandler(webapp2.RequestHandler):
             render_data = {}
             self.response.write(template.render(render_data))
 
-class UsersHandler(webapp2.RequestHandler):
-        def get(self):
-            template = jinja_environment.get_template("templates/userapi.html")
-            user = users.get_current_user()
-        if user:
-            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
-                (users.nickname(), users.create_logout_url('/')))
-        else:
-            greeting = ('<a href="%s">Sign in or register</a>.' %
-                users.create_login_url('/'))
-
-        self.response.write('<html><body>%s</body></html>' % greeting)
+# class UsersHandler(webapp2.RequestHandler):
+#         def get(self):
+#             template = jinja_environment.get_template("templates/userapi.html")
+#             user = users.get_current_user()
+#         if user:
+#             greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+#                 (users.nickname(), users.create_logout_url('/')))
+#         else:
+#             greeting = ('<a href="%s">Sign in or register</a>.' %
+#                 users.create_login_url('/'))
+#
+#         self.response.write('<html><body>%s</body></html>' % greeting)
 
 
 
@@ -93,7 +93,6 @@ app = webapp2.WSGIApplication([
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
-    ('/blogshow',BlogshowHandler),
-    ('/login', UsersHandler),
+    # ('/login', UsersHandler),
 
 ], debug=True)
