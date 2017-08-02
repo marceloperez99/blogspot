@@ -102,12 +102,7 @@ app = webapp2.WSGIApplication([
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
-<<<<<<< HEAD
     ('/blogshow',BlogshowHandler),
-    # ('/login', UsersHandler),
-
-
-=======
     ('/login', LoginHandler),
->>>>>>> 9648ad4daaf95badfe425e453ead5ccb4864ce43
+
 ], debug=True)
