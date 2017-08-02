@@ -94,8 +94,7 @@ app = webapp2.WSGIApplication([
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
     ('/blogshow',BlogshowHandler),
-<<<<<<< HEAD
-    ('/UserPage', UsersHandler)
+
 =======
     ('/login', UsersHandler),
 
