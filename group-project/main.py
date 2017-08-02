@@ -37,13 +37,13 @@ class MainHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template("templates/hero_page.html")
         self.response.write(template.render())
 
-
-
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/profile.html")
             render_data = {}
             self.response.write(template.render(render_data))
+            def get(self):
+                template = jinja_environment.get_template("templates/profile.html")
 
 class BlogzHandler(webapp2.RequestHandler):
         def get(self):
