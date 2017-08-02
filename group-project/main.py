@@ -35,14 +35,14 @@ jinja_environment = jinja2.Environment(
 
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template("templates/hero_page.html")
-        self.response.write(template.render())
+        def get(self):
+            template = jinja_environment.get_template("templates/hero_page.html")
+            self.response.write(template.render())
 
 class ProfileHandler(webapp2.RequestHandler):
-            def get(self):
-                template = jinja_environment.get_template("templates/profile.html")
-                self.response.write(template.render())
+        def get(self):
+            template = jinja_environment.get_template("templates/profile.html")
+            self.response.write(template.render())
 
 class BlogzHandler(webapp2.RequestHandler):
         def get(self):
@@ -92,4 +92,5 @@ app = webapp2.WSGIApplication([
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
+    ('/blogshow',BlogshowHandler)
 ], debug=True)

@@ -1,0 +1,20 @@
+<html>
+
+<link rel="stylesheet" type="text/css" href="/test/materialdesign.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<header>
+  <title>Blog Show</title>
+</header>
+
+<body>
+  {% for blog in BlogShow %}
+  <div class="mdl-card__actions mdl-card--border">
+    <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">ADD A NEW BLOG</a>
+  </div>
+  {% endfor %}
+</body>
+
+</html>
