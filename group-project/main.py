@@ -82,7 +82,7 @@ class UsersHandler(webapp2.RequestHandler):
             greeting = ('<a href="%s">Sign in or register</a>.' %
                 users.create_login_url('/'))
 
-        self.response.write('<html><body>%s</body></html>' % greeting
+        self.response.write('<html><body>%s</body></html>' % greeting)
 
 
 
@@ -92,5 +92,7 @@ app = webapp2.WSGIApplication([
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
-    ('/blogshow',BlogshowHandler)
+    ('/blogshow',BlogshowHandler),
+    ('/login', UsersHandler),
+
 ], debug=True)
