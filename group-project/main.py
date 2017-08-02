@@ -44,6 +44,7 @@ class ProfileHandler(webapp2.RequestHandler):
             self.response.write(template.render(render_data))
             def get(self):
                 template = jinja_environment.get_template("templates/profile.html")
+                self.response.write(template.render())
 
 class BlogzHandler(webapp2.RequestHandler):
         def get(self):
@@ -68,44 +69,6 @@ class ContactHandler(webapp2.RequestHandler):
             self.response.write(template.render(render_data))
 
 
-#         blogquery = BlogModel.query(BlogModel.title == "The Legal Duchess")
-#
-#
-#
-#         blogresults = blogquery.fetch()
-#         print blogresults
-#
-# blogkey = blogresults[0].key
-#
-#
-# my_user = UserModel(username = "lollipop", desc = "I am lollipop", favblogs =[blogkey])
-#
-# my_blog = BlogModel(title = "The Legal Duchess", url = "http://www.thelegalduchess.com/")
-
-
-#class AboutHandler(webapp2.RequestHandler):
-
-
-#class ProfileHandler(webapp2.RequestHandler):
-#         def get(self):
-#
-# class ProfileModel(ndb.Model):
-#
-# class UserModel(ndb.Model):
-#     # desc = ndb.TextProperty()
-#     # profile_pic = ndb.BlobProperty()
-#     username = ndb.KeyProperty(repeated = True)
-#
-# # class SourcePageModel(ndb.Model):
-# #     url = n
-#
-# class BlogModel(ndb.Model):
-#         title = ndb.StringProperty()
-#         url = ndb.LinkProperty()
-#
-#
-#
-# class SourceHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
@@ -113,9 +76,5 @@ app = webapp2.WSGIApplication([
     ('/blogz', BlogzHandler),
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
-
-    #('/contact', ContactHandler),
-
     ('/contact', ContactHandler),
-
 ], debug=True)
