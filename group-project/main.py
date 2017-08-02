@@ -74,15 +74,16 @@ class BlogshowHandler(webapp2.RequestHandler):
 
 class UsersHandler(webapp2.RequestHandler):
         def get(self):
-             user = users.get_current_user()
+            template = jinja_environment.get_template("templates/userapi.html")
+            user = users.get_current_user()
         if user:
             greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
-                (user.nickname(), users.create_logout_url('/')))
+                (users.nickname(), users.create_logout_url('/')))
         else:
             greeting = ('<a href="%s">Sign in or register</a>.' %
                 users.create_login_url('/'))
 
-        self.response.write('<html><body>%s</body></html>' % greeting
+        self.response.write('<html><body>%s</body></html>' % greeting)
 
 
 
@@ -92,5 +93,6 @@ app = webapp2.WSGIApplication([
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
-    ('/blogshow',BlogshowHandler)
+    ('/blogshow',BlogshowHandler),
+    ('/UserPage', UsersHandler)
 ], debug=True)
