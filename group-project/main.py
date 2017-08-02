@@ -40,8 +40,7 @@ class MainHandler(webapp2.RequestHandler):
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/profile.html")
-            render_data = {}
-            self.response.write(template.render(render_data))
+            self.response.write(template.render())
 
 class BlogzHandler(webapp2.RequestHandler):
         def get(self):
@@ -65,15 +64,11 @@ class ContactHandler(webapp2.RequestHandler):
             render_data = {}
             self.response.write(template.render(render_data))
 
-class DisplayBlogHandler(webapp2.RequestHandler):
+class BlogshowHandler(webapp2.RequestHandler):
         def get(self):
-            pass
-
-
-
-
-
-
+            template = jinja_environment.get_template("templates/blogshow.html")
+            render_data = {}
+            self.response.write(template.render(render_data))
 
 
 app = webapp2.WSGIApplication([
@@ -82,4 +77,5 @@ app = webapp2.WSGIApplication([
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
+    ('/blogshow',BlogshowHandler)
 ], debug=True)
