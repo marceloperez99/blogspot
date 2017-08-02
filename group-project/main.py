@@ -103,5 +103,4 @@ app = webapp2.WSGIApplication([
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
     ('/login', LoginHandler),
-
 ], debug=True)
