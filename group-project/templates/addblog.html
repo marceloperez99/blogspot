@@ -6,18 +6,22 @@
   <script src="/resources/addblog.js"></script>
 </header>
 
-<body>
 
   {% include "templates/navbar.html" %}
-
-  <h1>Hello there: Pick a Blog, any blog</h1>
-
+<body>
+  <br>
 <form>
-  <h2>Name of Blog: <input type="text" name="blog_name"></h2>
-  <br/>
-  <h2>Type of Blog: <input type="text" name="blog_type"></h2>
-  <br/>
-  <input type="Add">
+  <div>
+  Name of Blog:
+  <input type="text" name="blog-name"></h2></div>
+  <div>
+  Type of Blog:
+  <input type="text" name="blog-type"></h2></div>
+  <div>
+  Link:
+  <input type="text" name="blog-link"></h2></div>
+  <input type="submit" value="Add Blog" >
+</div>
 </form>
 
 </body>
