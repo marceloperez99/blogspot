@@ -1,6 +1,10 @@
 
+<<<<<<< HEAD
 application: nodal-strength-175714
 
+=======
+application: blogstore-175714
+>>>>>>> c75c9664c30f152f04e7e84e87b51e78cad3465f
 version: 1
 runtime: python27
 api_version: 1
@@ -16,7 +20,7 @@ handlers:
 
 - url: .*
   script: main.app
-  login: required
+  # login: required
 
 libraries:
 - name: webapp2
