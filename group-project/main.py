@@ -32,7 +32,17 @@ from google.appengine.api import users
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
+def get_or_create_user_model(user):
+    userquery = UserModel.query(UserModel.username == user.email())
+    userresults = userquery.fetch()
 
+    if len(userresults) > 0 : #if the user model exits this function will retunr it back to us
+        return userresults[0]
+    else:
+        #If the user model does not exist in our datatstor it should create one in the data store and return it back to us
+        newuser = UserModel.username == user.email()
+        newuser.put()
+        return newuser
 
 class MainHandler(webapp2.RequestHandler):
         def get(self):
@@ -42,7 +52,13 @@ class MainHandler(webapp2.RequestHandler):
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/UserProfile.html")
-            self.response.write(template.render())
+            user = users.get_current_user()
+            render_data = {}
+            render_data["Name"] = user
+            userquery = UserModel.query(UserModel.username == user.email())
+            userresults = userquery.fetch()
+            #user_Model = userresults[0]
+            self.response.write(template.render(render_data))
 
 class BlogzHandler(webapp2.RequestHandler):
         def get(self):
