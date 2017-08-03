@@ -198,7 +198,7 @@ outline: none;
 .submit_wrapper {
 text-align: center;
 }
-.submit_wrapper input {
+.submit_wrapper #submit_link {
 text-align: center;
 display: inline-block;
 width: 40%;
@@ -220,7 +220,7 @@ box-shadow: 1px 1px 0 0 #000000,2px 2px 0 0 #000000,3px 3px 0 0 #000000;
 -o-transition: all 250ms ease;
 transition: all 250ms ease;
 }
-.submit_wrapper input:hover {
+.submit_wrapper #submit_link:hover {
 -webkit-box-shadow: 1px 1px 0 0 #832032,0px 0px 0 0 #832032,0px 0px 0 0 #832032;
 box-shadow: 1px 1px 0 0 #832032,0px 0px 0 0 #832032,0px 0px 0 0 #832032;
 margin-top: 22px;
