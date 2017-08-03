@@ -4,7 +4,7 @@
     height: 300px;
 }
 a.fill-div {
-    display: block;
+    display: inline-block;
     height: 100%;
     width: 100%;
     text-decoration: none;
