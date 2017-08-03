@@ -42,7 +42,10 @@ class MainHandler(webapp2.RequestHandler):
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/UserProfile.html")
-            self.response.write(template.render())
+            user = users.get_current_user()
+            render_data = {}
+            render_data["Name"] = user
+            self.response.write(template.render(render_data))
 
 class BlogzHandler(webapp2.RequestHandler):
         def get(self):
