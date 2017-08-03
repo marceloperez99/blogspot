@@ -38,7 +38,7 @@ def get_or_create_user_model(user):
 
     if len(userresults) > 0 : #if the user model exits this function will retunr it back to us
         return userresults[0]
-    else: 
+    else:
         #If the user model does not exist in our datatstor it should create one in the data store and return it back to us
         newuser = UserModel(username= user.email())
         newuser.put()
@@ -55,11 +55,11 @@ class ProfileHandler(webapp2.RequestHandler):
             user = users.get_current_user()
             render_data = {}
             if user:
-                render_data["Name"] = user
+                render_data["Title"] = str(user) + "'s Profile"
                 userquery = UserModel.query(UserModel.username == user.email())
                 userresults = userquery.fetch()
             else:
-                render_data["Name"] = "Please Sign In"
+                render_data["Title"] = "Please Sign In"
             #user_Model = userresults[0]
             self.response.write(template.render(render_data))
 
