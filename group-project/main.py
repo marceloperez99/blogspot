@@ -38,7 +38,7 @@ def get_or_create_user_model(user):
 
     if len(userresults) > 0 : #if the user model exits this function will retunr it back to us
         return userresults[0]
-    else:
+    else: 
         #If the user model does not exist in our datatstor it should create one in the data store and return it back to us
         newuser = UserModel(username= user.email())
         newuser.put()
