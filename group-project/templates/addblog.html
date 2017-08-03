@@ -14,8 +14,7 @@
   {% for entities in addblogs: %}
   <div>
     <div id="addblog-div">
-      <h1><a href="{{entities.url}}" class="fill-div">{{entities.title}}</a></h1>
-      {{entities.descr}}
+      <h1><a href="{{entities.url}}" class="fill-div">{{entities.title}}</a></h1> {{entities.descr}}
     </div>
   </div>
   {% endfor %}

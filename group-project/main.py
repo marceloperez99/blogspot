@@ -55,11 +55,12 @@ class ProfileHandler(webapp2.RequestHandler):
             user = users.get_current_user()
             render_data = {}
             if user:
-                render_data["Title"] = str(user) + "'s Profile"
-                userquery = UserModel.query(UserModel.username == user.email())
-                userresults = userquery.fetch()
+                render_data["Name"] = user
+                blogquery = BlogModel.query()
+                blogresults = blogquery.fetch()
+                render_data["blogs"] = blogresults
             else:
-                render_data["Title"] = "Please Sign In"
+                render_data["Name"] = "Please Sign In"
             #user_Model = userresults[0]
             self.response.write(template.render(render_data))
 
