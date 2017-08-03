@@ -54,9 +54,12 @@ class ProfileHandler(webapp2.RequestHandler):
             template = jinja_environment.get_template("templates/UserProfile.html")
             user = users.get_current_user()
             render_data = {}
-            render_data["Name"] = user
-            userquery = UserModel.query(UserModel.username == user.email())
-            userresults = userquery.fetch()
+            if user:
+                render_data["Name"] = user
+                userquery = UserModel.query(UserModel.username == user.email())
+                userresults = userquery.fetch()
+            else:
+                render_data["Name"] = "Please Sign In"
             #user_Model = userresults[0]
             self.response.write(template.render(render_data))
 
