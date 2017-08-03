@@ -60,17 +60,21 @@ class BlogaddHandler(webapp2.RequestHandler):
             render_data["addblogs"] = addblogs
             self.response.write(template.render(render_data))
 
+        def post(self):
+            self.added_blog = BlogModel(self.request.get('post'))
+            self.added_blog.put()
+
 class ContactHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/contact_form.html")
             render_data = {}
             self.response.write(template.render(render_data))
 
-class BlogshowHandler(webapp2.RequestHandler):
-        def get(self):
-            template = jinja_environment.get_template("templates/blogshow.html")
-            render_data = {}
-            self.response.write(template.render(render_data))
+# class BlogshowHandler(webapp2.RequestHandler):
+#         def get(self):
+#             template = jinja_environment.get_template("templates/blogshow.html")
+#             render_data = {}
+#             self.response.write(template.render(render_data))
 
 # class UsersHandler(webapp2.RequestHandler):
 #         def get(self):
@@ -85,16 +89,18 @@ class BlogshowHandler(webapp2.RequestHandler):
 #
 #         self.response.write('<html><body>%s</body></html>' % greeting)
 
-class LoginHandler(webapp2.RequestHandler):
-    def get(self):
-        user = users.get_current_user()
-        if user:
-            greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
-                (user.nickname(), users.create_logout_url('/')))
-        else:
-            greeting = ('<a href="%s">Sign in or register</a>.' %
-                users.create_login_url('/prof'))
-        self.response.write('<html><body>%s</body></html>' % greeting)
+# class LoginHandler(webapp2.RequestHandler):
+#     def get(self):
+#         user = users.get_current_user()
+#         if user:
+#             greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+#                 (user.nickname(), users.create_logout_url('/')))
+#         else:
+#             greeting = ('<a href="%s">Sign in or register</a>.' %
+#                 users.create_login_url('/prof'))
+#         self.response.write('<html><body>%s</body></html>' % greeting)
+
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
@@ -102,7 +108,7 @@ app = webapp2.WSGIApplication([
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
-    ('/blogshow',BlogshowHandler),
-    ('/login', LoginHandler),
+    # ('/blogshow',BlogshowHandler),
+    # ('/login', LoginHandler),
 
 ], debug=True)

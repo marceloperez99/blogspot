@@ -1,4 +1,4 @@
-application: group-project
+application: blogstore1-175714
 version: 1
 runtime: python27
 api_version: 1
@@ -14,6 +14,7 @@ handlers:
 
 - url: .*
   script: main.app
+  login: required
 
 libraries:
 - name: webapp2

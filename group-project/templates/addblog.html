@@ -10,20 +10,19 @@
   {% include "templates/navbar.html" %}
 <body>
   <br>
-<form>
-  <div>
-  Name of Blog:
-  <input type="text" name="blog-name"></h2></div>
-  <div>
-  Type of Blog:
-  <input type="text" name="blog-type"></h2></div>
-  <div>
-  Link:
-  <input type="text" name="blog-link"></h2></div>
-  <input type="submit" value="Add Blog" >
-</div>
-</form>
-
+  <form method="post">
+    <div>
+    Name of Blog:
+    <input type="text" name="title"></h2></div>
+    <div>
+    Type of Blog:
+    <input type="text" name="descr"></h2></div>
+    <div>
+    Link:
+    <input type="text" name="url"></h2></div>
+    <input type="submit" value="Add Blog">
+  </div>
+  </form>
 </body>
 
 </html>
