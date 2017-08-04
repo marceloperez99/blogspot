@@ -1,0 +1,65 @@
+<html>
+
+<header>
+  <title>Add Blog</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/resources/addblog.css">
+  <script src="addblog.js"></script>
+</header>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+{% include "templates/navbar.html" %}
+
+<body>
+  {% for entities in addblogs: %}
+  <div>
+    <div id="addblog-div">
+
+    </div>
+  </div>
+
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+<h2><a href="{{entities.url}}" class="fill-div">{{entities.title}}</a></h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Mauris sagittis pellentesque lacus eleifend lacinia...
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      Add Blog
+    </a>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
+</div>
+  {% endfor %}
+
+
+  <!-- <form method="post">
+  <div>
+  Name of Blog:
+  <input type="text" name="blog-name"></h2></div>
+  <div>
+  Type of Blog:
+  <input type="text" name="blog-type"></h2></div>
+  <div>
+  Link:
+  <input type="text" name="blog-link"></h2></div>
+  <input type="submit" value="Add Blog">
+</div>
+</form> -->
+
+</body>
+
+</html>
