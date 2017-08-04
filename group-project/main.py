@@ -40,7 +40,7 @@ def get_or_create_user_model(user):
         return userresults[0]
     else:
         #If the user model does not exist in our datatstor it should create one in the data store and return it back to us
-        newuser = UserModel(username= user.email())
+        newuser = UserModel(username = user.email())
         newuser.put()
         return newuser
 
@@ -52,7 +52,10 @@ class MainHandler(webapp2.RequestHandler):
 class ProfileHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/UserProfile.html")
-            user = get_or_create_user_model(users.get_current_user())
+            logedinuser = users.get_current_user()
+            if logedinuser == None:
+                self.redirect("/login")
+            user = get_or_create_user_model(logedinuser)
             render_data = {}
             if user:
                 render_data["Title"] = user.username + "'s Profile"
@@ -113,7 +116,6 @@ class LoginHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         if user:
-
             get_or_create_user_model(user)
             greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
                 (user.nickname(), users.create_logout_url('/')))
