@@ -3,20 +3,22 @@
 <header>
   <title>Add Blog</title>
   <link rel="stylesheet" type="text/css" href="/resources/addblog.css">
-  <script src="/resources/addblog.js"></script>
+  <script src="addblog.js"></script>
 </header>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 
 {% include "templates/navbar.html" %}
 
-<body>
-
+<body onclick="OnBlockClick()">
   {% for entities in addblogs: %}
   <div>
     <div id="addblog-div">
-      <h1><a href="{{entities.url}}" class="fill-div">{{entities.title}}</a></h1> {{entities.descr}}
+      <h2><a href="{{entities.url}}" class="fill-div">{{entities.title}}</a></h2>
     </div>
   </div>
+  <input type="submit" value="Add Blog">
   {% endfor %}
 
 

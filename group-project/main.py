@@ -126,7 +126,7 @@ class LoginHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/blogz', BlogzHandler),
+    # ('/blogz', BlogzHandler),
     ('/add', BlogaddHandler),
     ('/prof', ProfileHandler),
     ('/contact', ContactHandler),
