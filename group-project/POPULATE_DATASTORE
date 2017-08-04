@@ -1,0 +1,11 @@
+from models import BlogModel
+from models import UserModel
+
+new_user = UserModel(username = "testuser@gmail.com")
+new_user.put()
+
+new_blog = BlogModel(title = "This is a test blog", descr = "Lorem ipsum dolor sit amet", url = "http://www.google.com")
+new_blog.put()
+
+new_user.favblogs.append(new_blog.key)
+new_user.put()
