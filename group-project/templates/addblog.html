@@ -21,29 +21,23 @@
     <input type="hidden" name="blogid" value="{{entities.key.id()}}">
     <input type="submit" value="Add Blog">
   </form>
-<form action="/add" method ="post">
-  <input type="hidden" name="blogid" value="blogshow">
-  <input type="submit" value="Add Blog Submission">
-
-</form>
-
 
   {% endfor %}
 
-
-  <!-- <form method="post">
+Add New Blog
+  <form action="/add" method="post">
   <div>
   Name of Blog:
-  <input type="text" name="blog-name"></h2></div>
+  <input type="text" name="blog_name"></h2></div>
   <div>
-  Type of Blog:
-  <input type="text" name="blog-type"></h2></div>
+  Description:
+  <input type="text" name="blog_descr"></h2></div>
   <div>
   Link:
-  <input type="text" name="blog-link"></h2></div>
-  <input type="submit" value="Add Blog">
+  <input type="text" name="blog_link"></h2></div>
+  <input type="submit" value="Add New Blog">
 </div>
-</form> -->
+</form>
 
 </body>
 
