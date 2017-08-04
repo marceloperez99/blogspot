@@ -21,6 +21,7 @@ import os
 import urllib
 import urllib2
 import json
+import logging
 from models import BlogModel
 from models import UserModel
 from google.appengine.api import users
@@ -81,14 +82,27 @@ class BlogzHandler(webapp2.RequestHandler):
 class BlogaddHandler(webapp2.RequestHandler):
         def get(self):
             template = jinja_environment.get_template("templates/addblog.html")
-            addblogs = BlogModel.query().fetch()
+            logedinuser = users.get_current_user()
+            user = get_or_create_user_model(logedinuser)
+            allblogs = BlogModel.query().fetch()
+            addblogs = []
+            for blog in allblogs:
+                if blog.key not in user.favblogs:
+                    addblogs.append(blog)
             render_data = {}
             render_data["addblogs"] = addblogs
             self.response.write(template.render(render_data))
 
         def post(self):
-            self.added_blog = BlogModel(self.request.get('post'))
-            self.added_blog.put()
+            logedinuser = users.get_current_user()
+            user = get_or_create_user_model(logedinuser)
+            blogid = self.request.get("blogid")
+            logging.info("The id is %s" % blogid)
+            blogmodel = BlogModel.get_by_id(int(blogid))
+            blogkey = blogmodel.key
+            user.favblogs.append(blogkey)
+            user.put()
+            self.redirect('/prof')
 
 class ContactHandler(webapp2.RequestHandler):
         def get(self):
