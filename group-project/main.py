@@ -97,6 +97,11 @@ class BlogaddHandler(webapp2.RequestHandler):
             logedinuser = users.get_current_user()
             user = get_or_create_user_model(logedinuser)
             blogid = self.request.get("blogid")
+            if not blogid:
+                new_blog = BlogModel(title=self.request.get("blog_name"),descr=self.request.get("blog_descr"),url=self.request.get("blog_link"))
+                new_blog.put()
+                blogid = new_blog.key.id()
+
             logging.info("The id is %s" % blogid)
             blogmodel = BlogModel.get_by_id(int(blogid))
             blogkey = blogmodel.key
