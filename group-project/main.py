@@ -59,9 +59,12 @@ class ProfileHandler(webapp2.RequestHandler):
             render_data = {}
             if user:
                 render_data["Title"] = user.username + "'s Profile"
-                blogquery = BlogModel.query()
-                blogresults = blogquery.fetch()
-                render_data["blogs"] = blogresults
+
+                favblogs = user.favblogs
+                favblogmodels = []
+                for blogkey in favblogs:
+                    favblogmodels.append(blogkey.get())
+                render_data["blogs"] = favblogmodels
             else:
                 render_data["Title"] = "Please Sign In"
             #user_Model = userresults[0]

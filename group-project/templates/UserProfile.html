@@ -104,16 +104,6 @@
     </div>
     <main class="mdl-layout__content mdl-color--grey-100">
       <div class="mdl-grid demo-content">
-
-        {% for entities in blogs: %}
-        <div>
-          <div id="addblog-div">
-            <h1><a href="{{entities.url}}" class="fill-div">{{entities.title}}</a></h1> {{entities.descr}}
-          </div>
-        </div>
-        {% endfor %}
-
-
         <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
           <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
             <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
@@ -145,7 +135,7 @@
                 color: blue;
               }
             </style>
-
+            {% if not blogs %}
             <div class="demo-card-wide mdl-card mdl-shadow--2dp">
               <div class="mdl-card__title">
                 <h2 class="mdl-card__title-text">This is where your blogs will be.</h2>
@@ -158,6 +148,17 @@
       ok
     </a>
               </div>
+              {% else %}
+              {% for entities in blogs: %}
+
+              <div>
+                <div id="addblog-div">
+                  <h1><a href="{{entities.url}}" class="fill-div">{{entities.title}}</a></h1> {{entities.descr}}
+                </div>
+              </div>
+              {% endfor %}
+
+              {% endif %}
               <div class="mdl-card__menu">
                 <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
       <i class="material-icons">share</i>
